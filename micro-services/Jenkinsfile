@@ -5,9 +5,9 @@ pipeline{
         jdk 'JDK17'
     }
     environment {
-        DOCKHUB_USERNAME = 'wwwdock'
+        DOCKHUB_USERNAME = 'steffijohn'
         DOCKHUB_PASSWORD = 'Docker@123'
-        NEXUS_URL = '52.90.147.63:8082'
+        NEXUS_URL = '3.91.154.138:8082'
         NEXUS_USERNAME = 'admin'
         NEXUS_PASSWORD = 'suxen'
         NEXUS_REPO = 'payment-app'
@@ -15,7 +15,7 @@ pipeline{
     stages {
         stage('Git Checkout') {
             steps{
-                git branch: 'main', url: 'https://github.com/www-domain/payment-app.git', credentialsId: 'git-hook-token'
+                git branch: 'main', url: 'https://github.com/SteffiJohnson/Docker_Final_Project.git', credentialsId: 'git-hook-token'
             }
         }
 
@@ -97,7 +97,7 @@ pipeline{
                             sleep 10
                             
 
-                            curl --fail http://52.90.147.63:8000/health || exit 1
+                            curl --fail http://3.91.154.138:8000/health || exit 1
                             
 
                             pkill -f "uvicorn"
@@ -117,7 +117,7 @@ pipeline{
                             sleep 10
                             
 
-                            curl --fail http://52.90.147.63:8001/health || exit 1
+                            curl --fail http://3.91.154.138:8001/health || exit 1
                             
 
                             pkill -f "uvicorn"
