@@ -6,7 +6,7 @@ pipeline{
     }
     environment {
         DOCKHUB_USERNAME = 'steffijohn'
-        DOCKHUB_PASSWORD = 'Docker@123'
+        DOCKHUB_PASSWORD = '15@docker'
         NEXUS_URL = '3.91.154.138:8082'
         NEXUS_USERNAME = 'admin'
         NEXUS_PASSWORD = 'suxen'
