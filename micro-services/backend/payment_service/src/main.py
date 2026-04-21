@@ -7,7 +7,8 @@ from .services import get_user_payments,get_single_payment,get_payment_status,ca
 from common.logging_config import setup_logging
 from redis import asyncio as aioredis
 from json import dumps, loads
-
+from fastapi.responses import JSONResponse
+from datetime import datetime
 
 
 app = FastAPI()
@@ -130,8 +131,13 @@ async def cancel_payment(
 #         logger.error(f"Error generating payment summary: {str(e)}")
 #         raise HTTPException(status_code=500, detail="Internal server error")
 
+async def check_db_connection():
+    return True
 
-
+class MockES:
+    def ping(self):
+        return False
+es = MockES()
 @app.get("/api/payments/health")
 async def health_check():
     """Health check endpoint"""
