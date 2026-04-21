@@ -5,7 +5,7 @@ from .auth import get_current_user
 from .models import PaymentCreate, Payment
 from .services import get_user_payments,get_single_payment,get_payment_status,cancel_payment_service,create_payment,serialize_payment
 from common.logging_config import setup_logging
-from redis import asyncio as aioredis
+import aioredis
 from json import dumps, loads
 
 
