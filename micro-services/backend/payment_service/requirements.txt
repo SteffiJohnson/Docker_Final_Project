@@ -12,4 +12,4 @@ passlib
 python-logstash
 python-json-logger
 slowapi
-aioredis
+redis>=4.2.0
