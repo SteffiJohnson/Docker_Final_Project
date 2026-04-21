@@ -132,28 +132,28 @@ async def cancel_payment(
 
 
 
-# @app.get("/api/payments/health")
-# async def health_check():
-#     """Health check endpoint"""
-#     try:
-#         # Check database connection
-#         await check_db_connection()
-#         # Check Elasticsearch connection
-#         es_status = es.ping()
+@app.get("/api/payments/health")
+async def health_check():
+    """Health check endpoint"""
+    try:
+        # Check database connection
+        await check_db_connection()
+        # Check Elasticsearch connection
+        es_status = es.ping()
         
-#         return {
-#             "status": "healthy",
-#             "database": "connected",
-#             "elasticsearch": "connected" if es_status else "disconnected",
-#             "timestamp": datetime.utcnow()
-#         }
-#     except Exception as e:
-#         logger.error(f"Health check failed: {str(e)}")
-#         return JSONResponse(
-#             status_code=503,
-#             content={
-#                 "status": "unhealthy",
-#                 "error": str(e),
-#                 "timestamp": datetime.utcnow()
-#             }
-#         )
+        return {
+            "status": "healthy",
+            "database": "connected",
+            "elasticsearch": "connected" if es_status else "disconnected",
+            "timestamp": datetime.utcnow()
+        }
+    except Exception as e:
+        logger.error(f"Health check failed: {str(e)}")
+        return JSONResponse(
+            status_code=503,
+            content={
+                "status": "unhealthy",
+                "error": str(e),
+                "timestamp": datetime.utcnow()
+            }
+        )
