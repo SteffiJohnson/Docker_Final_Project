@@ -25,7 +25,7 @@ services:
         max-file: "3"
     depends_on:
       - mongodb
-      - elasticsearch
+      # - elasticsearch
     networks:
       - app-network
 
@@ -33,7 +33,7 @@ services:
     build: ./backend/payment_service
     environment:
       - MONGODB_URI=mongodb://mongodb:27017/payment_app
-      - ELASTICSEARCH_HOST=elasticsearch
+      # - ELASTICSEARCH_HOST=elasticsearch
     volumes:
       - ./backend/common:/app/common
     logging:
@@ -43,7 +43,7 @@ services:
         max-file: "3"
     depends_on:
       - mongodb
-      - elasticsearch
+      # - elasticsearch
       - redis
 
     networks:
@@ -70,37 +70,37 @@ services:
     networks:
       - app-network
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
-    environment:
-      - discovery.type=single-node
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ports:
-      - "9200:9200"
-    volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data
-    networks:
-      - app-network
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+  #   environment:
+  #     - discovery.type=single-node
+  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+  #   ports:
+  #     - "9200:9200"
+  #   volumes:
+  #     - elasticsearch_data:/usr/share/elasticsearch/data
+  #   networks:
+  #     - app-network
 
-  kibana:
-    image: docker.elastic.co/kibana/kibana:7.9.3
-    ports:
-      - "5601:5601"
-    depends_on:
-      - elasticsearch
-    networks:
-      - app-network
+  # kibana:
+  #   image: docker.elastic.co/kibana/kibana:7.9.3
+  #   ports:
+  #     - "5601:5601"
+  #   depends_on:
+  #     - elasticsearch
+  #   networks:
+  #     - app-network
 
-  logstash:
-    image: docker.elastic.co/logstash/logstash:7.9.3
-    volumes:
-      - ./elk/logstash/config/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-      - ./elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
-      - logstash_data:/var/log/logstash
-    depends_on:
-      - elasticsearch
-    networks:
-      - app-network
+  # logstash:
+  #   image: docker.elastic.co/logstash/logstash:7.9.3
+  #   volumes:
+  #     - ./elk/logstash/config/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+  #     - ./elk/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+  #     - logstash_data:/var/log/logstash
+  #   depends_on:
+  #     - elasticsearch
+  #   networks:
+  #     - app-network
   
   redis:
     image: redis:latest
@@ -116,8 +116,8 @@ services:
 
 volumes:
   mongodb_data:
-  elasticsearch_data:
-  logstash_data:
+  # elasticsearch_data:
+  # logstash_data:
   redis_data:
 
 
