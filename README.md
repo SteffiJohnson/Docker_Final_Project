@@ -13,3 +13,7 @@ Observability:  "Prometheus, cAdvisor, Grafana"
 Backend/Frontend:  "Python (FastAPI), Angular"
 
 Database:  "MongoDB, Redis"
+
+
+![Dashboard](images/gf.png)
+![Pipeline](images/js.png)
