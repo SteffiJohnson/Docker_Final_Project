@@ -14,6 +14,11 @@ Backend/Frontend:  "Python (FastAPI), Angular"
 
 Database:  "MongoDB, Redis"
 
-
-![Dashboard](images/gf.png)
+![Containers](images/ps.png)
+![Frontend](images/db.png)
 ![Pipeline](images/js.png)
+![Images](images/dh.png)
+![Imagess](images/nx.png)
+![Prometheus](images/pm.png)
+![Sonarqube](images/sq.png)
+![Dashboard](images/gf.png)
