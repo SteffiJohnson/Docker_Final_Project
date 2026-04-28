@@ -1,3 +1,5 @@
+A containerized microservices payment application deployed via a Jenkins CI/CD pipeline on AWS, featuring an automated Prometheus and Grafana observability stack.
+
 Core Tech Stack :
 
 Cloud Infrastructure:  "AWS (EC2, VPC, Security Groups)"
